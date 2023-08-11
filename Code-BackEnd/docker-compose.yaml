@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: connectpharmacy-db
+    ports:
+      - 5432:5432
+    networks:
+      - connectPharmacy
+    environment:
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_USER=connectpharmacy
+      - POSTGRES_DB=connectpharmacy
+    volumes:
+    - postgres:/var/lib/postgresql/data
+######### BACKEND #########
+  #backend:
+  #  build:
+  #    context: .
+  #    dockerfile: Dockerfile
+  #  container_name: connectPharmacy-backend
+  #  volumes:
+  #    - .:/app
+  #  ports:
+  #    - 3001:3001
+  #  networks:
+  #    - connectPharmacy
+  #  env_file:
+  #    - .env
+  #  depends_on:
+  #    - postgres
+  #  links:
+  #    - postgres
+  #  command: >
+  #    /bin/sh -c "npx prisma migrate dev --name dev && npx prisma db seed &&
+  #    npm run start"
+######### BACKEND #########
+volumes:
+  postgres:
+
+networks:
+  connectPharmacy:
