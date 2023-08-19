@@ -1,0 +1,12 @@
+.content-container {
+  display: flex;
+  justify-content: center;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1500px;
+    padding: 8px;
+  }
+}

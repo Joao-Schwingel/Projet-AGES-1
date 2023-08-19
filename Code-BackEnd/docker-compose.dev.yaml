@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: connectpharmacy-db
+    ports:
+      - 5432:5432
+    networks:
+      - connectPharmacy
+    environment:
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_USER=connectpharmacy
+      - POSTGRES_DB=connectpharmacy
+    volumes:
+    - postgres:/var/lib/postgresql/data
+  backend:
+    build:
+      context: .
+      dockerfile: DockerfileDev
+    container_name: connectPharmacy-backend
+    volumes:
+      - ./src:/app/src
+      - ./test:/app/test
+    ports:
+      - 3001:3001
+    networks:
+      - connectPharmacy
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgresql://connectpharmacy:123456@postgres:5432/connectpharmacy
+    depends_on:
+      - postgres
+    command: npm run start:dev
+volumes:
+  postgres:
+
+networks:
+  connectPharmacy:

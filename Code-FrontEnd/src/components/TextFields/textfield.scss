@@ -1,0 +1,59 @@
+.textfield-component {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  p {
+    margin: 0;
+    font-size: 16px;
+    color: #d85060;
+  }
+
+  label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #404040;
+
+    span {
+      color: #d85060;
+    }
+  }
+
+  input {
+    padding: 10px 10px;
+    border: 1px solid transparent;
+    outline: none;
+    background-color: #ecf2f7;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+
+  .textfield-component-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+
+    input {
+      width: 100%;
+    }
+
+    img {
+      position: absolute;
+      right: 16px;
+      bottom: 50%;
+      transform: translateY(50%);
+      cursor: pointer;
+    }
+
+    .end-adornment {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+  }
+}

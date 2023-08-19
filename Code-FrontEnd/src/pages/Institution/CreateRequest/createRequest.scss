@@ -1,0 +1,140 @@
+.main-wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  max-width: 730px;
+  margin: auto;
+  gap: 16px;
+
+  .two-inputs {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+  }
+
+  .title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #00709f;
+    text-align: center;
+    line-height: 16px;
+    padding: 30px;
+  }
+
+  .paragraph {
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    color: #8c8c8c;
+  }
+
+  .medicamentQuantity {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 15px;
+  }
+
+  .input-adornment {
+    background-color: #00709f;
+  }
+
+  .amount-adorment {
+    margin-right: 16px;
+  }
+
+  .dosage-adornment {
+    margin-right: 4px;
+  }
+
+  .amount-adorment,
+  .dosage-adornment {
+    font-weight: 500;
+    font-size: 16;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  .dosage {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    margin-bottom: 0;
+  }
+
+  .dosage .select-component {
+    max-width: 20%;
+    height: 40px;
+  }
+
+  .observations {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding: 15px;
+    margin-bottom: 0;
+  }
+
+  .input-wrapper {
+    padding: 0;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    border-radius: 9px;
+    width: 100%;
+  }
+
+  .form-wrapper {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 37px;
+  }
+  .form-inside {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 23px;
+  }
+  .button-wrapper {
+    display: flex;
+    width: 100%;
+    gap: 54px;
+  }
+  .form-control {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+  }
+  .small-control {
+    max-width: 218px;
+  }
+  .label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #404040;
+    & > span {
+      color: red;
+    }
+  }
+
+  .custom-input {
+    color: #404040;
+    border-radius: 4px;
+    background-color: #ecf2f7;
+  }
+
+  *::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  textarea {
+    padding-top: 10px;
+    padding-left: 5px;
+    border: 1px solid #bdbdbd !important;
+  }
+  textarea::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,168 @@
+.my-requests-modal .modal {
+  border-radius: 10px;
+  position: relative;
+  width: 865px;
+
+  > .header h1 {
+    padding: 2vh 2vh 0vh 5vh;
+    color: #373737;
+    font-size: 34px;
+    font-weight: bold;
+    text-align: left;
+    margin: 0;
+    display: flex;
+    position: relative;
+  }
+
+  > .header .badge {
+    margin-top: 15px;
+    display: flex;
+    padding-right: 15%;
+    position: relative;
+  }
+
+  > .header span {
+    margin-bottom: 20px;
+  }
+}
+
+#status {
+  position: relative;
+  left: 82%;
+}
+
+.myRequests-container {
+  .informations {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-evenly;
+    width: 90%;
+    margin: auto;
+  }
+
+  .medicament-title {
+    font-weight: bold;
+    font-size: 32px;
+    color: #373737;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .containerR {
+    position: relative;
+    top: 1vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .containerR2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .containerL {
+    gap: 1vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header-modal-myRequests {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .field-component {
+    padding: 13px 15px;
+    border: 1px solid transparent;
+    outline: none;
+    background-color: #ecf2f7;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  .container-field-component {
+    font-weight: 500;
+    color: #686868;
+    font-size: 16px;
+  }
+
+  .titulo-container {
+    color: #686868;
+  }
+
+  .element-doctor {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 13px 15px;
+    border: 1px solid transparent;
+    outline: none;
+    background-color: #ecf2f7;
+    border-radius: 5px;
+    font-size: 16px;
+    align-items: center;
+  }
+
+  .element-driver {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 13px 15px;
+    border: 1px solid transparent;
+    outline: none;
+    background-color: #ecf2f7;
+    border-radius: 5px;
+    font-size: 16px;
+    align-items: center;
+    margin-top: 6px;
+  }
+
+  .element {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    gap: 10px;
+    flex-direction: row;
+  }
+
+  .field-doctor-component {
+    display: flex;
+    margin: 0;
+    font-size: 16px;
+    color: #686868;
+  }
+
+  .titulo {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    color: #404040;
+    padding: 1vh 0vh 0vh 0vh;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-top: 2.5vh;
+  }
+}
+
+.new-transport-title {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.new-transport-textfield {
+  margin-bottom: 10px;
+}

@@ -1,0 +1,28 @@
+.request-browser-container {
+  .top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .loading-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      max-width: 150px;
+    }
+
+    p {
+      color: var(--primary);
+    }
+  }
+}

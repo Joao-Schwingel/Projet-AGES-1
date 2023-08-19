@@ -11,10 +11,80 @@ datasource db {
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  email    String @unique
-  username String @unique
-  cnpj     String @unique
-  password String
-  role     String
+  userId           Int              @id @default(autoincrement())
+  email            String           @unique
+  username         String           @unique
+  cnpj             String           @unique
+  name             String
+  password         String
+  role             String           @default("institution")
+  phone            String           @unique
+  photoURL         String?
+  requests         Request[]        @relation(name: "Origin Institution")
+  deniedRequests   DeniedRequests[]
+  acceptedRequests Request[]        @relation(name: "Accepter User")
+  state            String
+  city             String
+  street           String
+  number           String
+  complement       String
+  postalCode       String
+  neighborhood     String
+  dateAndTime      DateTime
+}
+
+model DeniedRequests {
+  deniedId   Int      @id @default(autoincrement())
+  user       User?    @relation(fields: [userUserId], references: [userId])
+  userUserId Int?
+  request    Request? @relation(fields: [requestId], references: [requestId])
+  requestId  Int?
+}
+
+model Request {
+  requestId           Int              @id @unique @default(autoincrement())
+  dateAndTime         DateTime
+  crm                 String
+  doctor              String
+  genericAccepted     Boolean
+  observation         String?
+  status              String
+  amount              String
+  originInstitution   User             @relation(name: "Origin Institution", fields: [originInstitutionId], references: [userId])
+  originInstitutionId Int
+  userDenies          DeniedRequests[]
+  delivery            Delivery?
+  medicament          Medicament       @relation(fields: [medicamentId], references: [medicamentId])
+  medicamentId        Int
+  accepterUser        User?            @relation(name: "Accepter User", fields: [accepterUserId], references: [userId])
+  accepterUserId      Int?
+}
+
+model Medicament {
+  medicamentId                 Int       @id @default(autoincrement())
+  photoURL String?
+  name               String    
+  principleActive    String?
+  dosage             String
+  request            Request[]
+  @@unique([name, dosage])
+}
+
+model Driver {
+  driverId        Int        @id @default(autoincrement())
+  name            String
+  phoneNumber     String
+  generalRegister String
+  deliveries      Delivery[]        @relation(name: "Driver")
+}
+
+model Delivery {
+  deliveryId   Int     @id @default(autoincrement())
+  licensePlate String
+  description  String
+  status       String
+  driver       Driver? @relation( name: "Driver", fields: [driverId], references: [driverId])
+  driverId     Int
+  request      Request @relation(fields: [requestId], references: [requestId])
+  requestId    Int     @unique
 }

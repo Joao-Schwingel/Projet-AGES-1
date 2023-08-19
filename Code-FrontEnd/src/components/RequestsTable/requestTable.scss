@@ -1,0 +1,26 @@
+.rt-tr-group:nth-of-type(even) {
+  background: red;
+}
+
+.dark-row {
+  background: rgba(255, 255, 255, 1);
+}
+
+.light-row {
+  background: rgba(110, 221, 200, 0.05);
+}
+.table-row:hover {
+  cursor: pointer;
+  background-color: #50d8bf1f;
+}
+
+.textColor {
+  color: rgba($color: #808080, $alpha: 1);
+}
+
+.dateCell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}

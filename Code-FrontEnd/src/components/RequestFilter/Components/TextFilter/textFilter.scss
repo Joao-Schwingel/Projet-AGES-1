@@ -1,0 +1,25 @@
+.medicine-filter-component {
+  img {
+    width: 20px;
+  }
+
+  .MuiInputBase-root {
+    border-radius: 100px;
+  }
+
+  .MuiFormLabel-root.Mui-focused {
+    color: var(--primary) !important;
+  }
+
+  .Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: var(--primary) !important;
+  }
+
+  .MuiFormControl-root {
+    margin: 0px;
+  }
+
+  .search-icon {
+    color: #616161;
+  }
+}

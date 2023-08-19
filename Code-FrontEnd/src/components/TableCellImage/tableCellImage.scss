@@ -1,0 +1,58 @@
+.table-cell-image-component {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 1rem;
+  gap: 15px;
+
+  p,
+  h4 {
+    margin: 0;
+    padding: 0;
+  }
+
+  .table-cell-image-component-img-wrapper {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.1);
+    color: var(--primary);
+    font-size: 14px;
+
+    .table-cell-image-pill {
+      width: 15px;
+      height: 15px;
+      border-radius: 0;
+    }
+
+    img {
+      object-fit: cover;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+  }
+
+  .table-cell-image-medicine {
+    border-radius: 0;
+    border: none;
+    background: transparent;
+
+    img {
+      border-radius: 0;
+    }
+  }
+
+  .table-cell-image-component-data-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    p {
+      opacity: 0.8;
+    }
+  }
+}

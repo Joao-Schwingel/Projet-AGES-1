@@ -1,0 +1,41 @@
+.badge-component {
+  display: inline-flex;
+  width: 130px;
+  border-radius: 60px;
+  padding: 10px 0;
+
+  p {
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    font-weight: 500;
+  }
+}
+.badge-color-active {
+  background-color: #d3f2ff;
+
+  p {
+    color: var(--primary);
+  }
+}
+.badge-color-accepted {
+  background-color: #e2ffd4;
+
+  p {
+    color: #038300;
+  }
+}
+.badge-color-transport {
+  background-color: #fffdce;
+
+  p {
+    color: #867000;
+  }
+}
+.badge-color-done {
+  background-color: #e3e3e3;
+
+  p {
+    color: #5f5f5f;
+  }
+}

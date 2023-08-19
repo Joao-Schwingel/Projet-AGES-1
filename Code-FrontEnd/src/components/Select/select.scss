@@ -1,0 +1,35 @@
+.select-component {
+  .label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #404040;
+    margin-bottom: 5px;
+
+    .select-component-required {
+      color: red;
+    }
+  }
+
+  .error-label {
+    margin: 0;
+    font-size: 16px;
+    color: #d85060;
+  }
+
+  .select-component-autocomplete {
+    background-color: #ecf2f7;
+    border-radius: 4px;
+
+    .MuiOutlinedInput-notchedOutline {
+      border: none !important;
+    }
+
+    .select-component-required {
+      color: red;
+    }
+  }
+
+  .dropdown-icon {
+    color: #000;
+  }
+}

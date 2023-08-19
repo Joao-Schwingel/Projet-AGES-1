@@ -114,3 +114,62 @@ $ npm run start
 # Executar em modo de desenvolvimento com watch mode
 $ npm run start:dev
 ```
+
+### Executando o app utilizando Makefile
+
+Conseguimos utilizar o Makefile para executar tanto o banco de dados como o back end de maneira mais otimizada
+e fácil. Para isso, primeiramente precisamos instalar o gerenciador de pacotes Chocolatey, depois dessa etapa instalaremos o Make.
+
+Instalando o Chocolatey:
+
+- Abra um terminal Powershell como administrador
+
+- Execute o comando: 
+
+```bash
+# Comando a ser executado para instalar.
+$ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+# Comando para verificar a instalação do Chocolatey (verifique se a versão deste aparecerá no terminal). 
+$ choco
+# Caso não seja possível confirmar a instalação, feche o atual terminal e reabra um novo Powershell como administrador.
+```
+
+Instalando o Make:
+
+- Abra um terminal Powershell como administrador
+
+- Execute o comando: 
+
+```bash
+# Comando a ser executado para instalar.
+$ choco install make
+
+# Comando para verificar a instalação do Make (verifique se a versão deste aparecerá no terminal). 
+$ make --version
+# Caso não seja possível confirmar a instalação, feche o atual terminal e reabra um novo Powershell como administrador.
+```
+
+Após instalar o gerenciador de pacotes Chocolatey e o utilitário Make, os comandos make podem ser 
+utilizados para rodar a aplicação.
+
+```bash
+
+# Comando para parar os containers existentes referentes a aplicação
+$ make drop
+	
+# Comando para parar os container referentes a aplicação e deletar as migrations de execuções passadas
+# Recomendado para quando existem erros recorrentes ao tentar executar.
+$ make drop-force
+
+# Comando para rodar somente o banco de dados da aplicação.
+$ make run-database
+
+# Comando para rodar a aplicação e migrações no banco de dados 
+# Obs: para este comando funcionar por si só, precisamos ter o banco de dados rodando.
+$ make run-server
+
+# Comando que executa o banco de dados, as migrações e o back-end da aplicação ao mesmo tempo.
+$ make -j run
+# Obs, se já existe um banco de dados com migrações existentes, será necessário, quando os comandos pararem de rodar no terminal (ou seja quando o terminal se estibilizar e nenhum outro dado estiver sendo impresso na tela) apertar a tecla "y"  para confirmar as migrações.
+```

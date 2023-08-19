@@ -16,24 +16,26 @@ O editor escolhido é o Visual Studio Code, desenvolvido pela Microsoft para sis
 
 Para utilizarmos o React e rodar as aplicações no navegador será necessário a instalação do NPM (Node Package Manager) que é o responsável pelo gerenciamento dos pacotes de aplicativos, inclusive o próprio React. Para isso, precisaremos instalar o Node.js, que é uma plataforma de desenvolvimento web de alta performance usando JavaScript, e que possuí o NPM como parte do pacote.
 
-* [NPM ](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-* [Node.js](https://nodejs.org/en)
-* [VS Code](https://code.visualstudio.com/download)
+- [NPM ](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+- [Node.js](https://nodejs.org/en)
+- [VS Code](https://code.visualstudio.com/download)
 
 #### Extensões Obrigatórias
 
-* [ESlint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-* [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [ESlint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
 #### Instalação
 
 Adicionar um arquivo na raiz do projeto com o nome ".env".
 O arquivo deve ter como conteúdo:
+
 ```
-REACT_APP_API='https://link.api.back'; 
+REACT_APP_API='https://link.api.back';
 ```
 
 Execute os seguintes comandos no terminal:
+
 ```
 npm install
 npm start
@@ -41,5 +43,28 @@ npm start
 ```
 
 Depois de executar o programa, basta acessar a seguinte URL para ter acesso a aplicação
+
 ```
 localhost:3001
+```
+
+## Docker
+
+**Atenção**: O uso do docker nesse projeto é apenas para facilitar o deploy, não é para usar em desenvolvimento!<br>
+Instruções de como fazer o build e rodar a imagem do docker:
+
+Faça o build da imagem:
+```
+docker build -t cp-front .
+```
+
+Crie um container com a imagem que você acabou de "buildar":
+```
+docker run --rm -p 8080:80 cp-front
+```
+
+Isso inicia um container com a imagem do front e forwarda as requisições da porta 8080 do host para a 80 do container.
+
+Para acessar a aplicação pode se navegar para http://localhost:8080
+
+Observação: O container do front **APENAS** serve os arquivos **ESTÁTICOS** do build com o **NGINX**, não faz requisições para lugar nenhum, o que acaba por fazer as requisições de login, lista de instituições, etc. é o navegador do usuário!

@@ -17,18 +17,10 @@ RUN npm install
 
 COPY . /app
 
-
 # Build the app
 RUN npm run build
-
-FROM node:18-alpine3.16
-
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package*.json ./
-COPY --from=builder /app/tsconfig*.json ./
-COPY --from=builder /app/prisma ./
-
 RUN npx prisma generate
+
 WORKDIR /app
 EXPOSE 3001
-
+CMD [ "ash", "-c", "npm run migrate && npm run seed && npm run start" ]

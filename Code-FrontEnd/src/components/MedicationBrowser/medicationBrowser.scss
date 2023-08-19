@@ -1,0 +1,21 @@
+.medicament-browser-container {
+  .top {
+    justify-content: space-between;
+    flex-direction: row;
+
+    > div {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .medicine-filter-component {
+    padding: 16px;
+    justify-content: space-between;
+    display: flex;
+  }
+
+  .medicament-browser-name-filter-container {
+    display: flex;
+  }
+}

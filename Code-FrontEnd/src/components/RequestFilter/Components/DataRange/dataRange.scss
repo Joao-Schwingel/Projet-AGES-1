@@ -1,0 +1,13 @@
+.data-ranger-picker-component {
+  .MuiInputBase-root {
+    border-radius: 100px;
+  }
+
+  .Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: var(--primary) !important;
+  }
+
+  .MuiFormLabel-root.Mui-focused {
+    color: var(--primary) !important;
+  }
+}

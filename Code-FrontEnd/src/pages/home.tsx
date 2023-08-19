@@ -1,18 +1,14 @@
-import { useNavigate } from 'react-router-dom';
+import { useAuth } from 'hooks/auth';
+import { Navigate } from 'react-router-dom';
+import { ROUTES } from 'routes/constants';
 
-const Home = () => {
-  const navigate = useNavigate();
-
-  const handleLogout = async () => {
-    navigate('/login');
-  };
-
-  return (
-    <div>
-      <h2>Página Home</h2>
-      <button onClick={handleLogout}>Login</button>
-    </div>
-  );
+export const HomePage = () => {
+  const auth = useAuth();
+  if (!auth.isLoading) {
+    if (!auth.user) return <Navigate to={ROUTES.LOGIN()} />;
+    if (auth.user?.role === 'admin') return <Navigate to={ROUTES.ADMIN()} />;
+    if (auth.user?.role === 'institution')
+      return <Navigate to={ROUTES.INSTITUTION()} />;
+  }
+  return null;
 };
-
-export default Home;

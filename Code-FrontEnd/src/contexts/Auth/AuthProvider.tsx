@@ -1,47 +1,61 @@
-import { userApi } from 'hooks/userApi';
 import { useEffect, useState } from 'react';
-import { User } from 'types/User';
 import { AuthContext } from './AuthContext';
+import { authService, AuthUser } from 'services';
+import { userService } from 'services';
 
 export const AuthProvider = ({ children }: { children: JSX.Element }) => {
-  const [user, setUser] = useState<User | null>(null);
-  const api = userApi();
+  const [isLoading, setLoading] = useState(true);
+  const [user, setUser] = useState<AuthUser | undefined>();
 
   useEffect(() => {
     const validateToken = async () => {
-      const storageDate = localStorage.getItem('authToken');
-      if (storageDate) {
-        const data = await api.validateToken(storageDate);
-        if (data.user) {
-          setUser(data.user);
+      const rememberMe = authService.getRememberMe();
+      if (rememberMe) {
+        const token = authService.getToken();
+        if (token) {
+          const data = await authService.decodeToken(token);
+          if (data) {
+            setUser(data);
+          }
         }
       }
+      setLoading(false);
     };
     validateToken();
-  }, [api]);
+  }, []);
 
-  const signin = async (email: string, password: string) => {
-    const data = await api.signin(email, password);
-    if (data.user && data.token) {
-      setUser(data.user);
-      setToken(data.token);
-      return true;
+  const signIn = async (
+    email: string,
+    password: string,
+    rememberMe: boolean
+  ) => {
+    authService.setRememberMe(rememberMe);
+    const data = await authService.signIn(email, password);
+    if (data.access_token) {
+      const authUser = authService.decodeToken(data.access_token);
+      if (authUser) {
+        authService.setToken(data.access_token);
+        userService.clearCache();
+        const userData = {
+          username: authUser.username,
+          userId: authUser.userId,
+          role: authUser.role,
+        };
+        setUser(userData);
+        return true;
+      }
     }
     return false;
   };
 
-  const signout = async () => {
-    setUser(null);
-    setToken('');
-    await api.logout();
-  };
-
-  const setToken = (token: string) => {
-    localStorage.setItem('authToken', token);
+  const signOut = async () => {
+    setUser(undefined);
+    authService.removeToken();
+    userService.clearCache();
   };
 
   return (
-    <AuthContext.Provider value={{ user, signin, signout }}>
+    <AuthContext.Provider value={{ user, isLoading, signIn, signOut }}>
       {children}
     </AuthContext.Provider>
   );

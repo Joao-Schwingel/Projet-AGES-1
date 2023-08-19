@@ -1,0 +1,13 @@
+FROM node:18-alpine3.16 AS builder
+WORKDIR /app
+# Add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
+RUN npm i -g @nestjs/cli
+COPY package*.json /app
+RUN npm install
+COPY prisma /app/prisma
+RUN npx prisma generate
+COPY nest-cli.json .
+COPY tsconfig*.json .
+WORKDIR /app
+EXPOSE 3001

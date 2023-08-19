@@ -1,43 +1,38 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "settings": {
-      "react": {
-        "version": "detect"
-      }
+  "env": {
+    "browser": true,
+    "es2021": true
   },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:prettier/recommended"
-    ],
-    "overrides": [
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "sourceType": "module",
-        "ecmaFeatures": {
-          "jsx": true
-      },
-      "ecmaVersion": 12
-
-    },
-    "plugins": [
-        "react",
-        "@typescript-eslint",
-        "react-hooks"
-    ],
-    "rules": {
-        "react/prop-types": "off",
-        "react/react-in-jsx-scope": "off",
-        "@typescript-eslint/explicit-module-boundary-types": "off",
-        "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn",
-        "react/display-name": "off",
-        "eslint-disable-next-line": "off",
-        "@typescript-eslint/no-non-null-assertion": "off"
+  "settings": {
+    "react": {
+      "version": "detect"
     }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "overrides": [],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12
+  },
+  "plugins": ["react", "@typescript-eslint", "react-hooks"],
+  "rules": {
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/display-name": "off",
+    "eslint-disable-next-line": "off",
+    "@typescript-eslint/no-non-null-assertion": "off"
+  }
 }
